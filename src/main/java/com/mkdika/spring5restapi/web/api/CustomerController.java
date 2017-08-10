@@ -50,7 +50,7 @@ public class CustomerController {
     private CustomerRepository repository;
 
     @ApiOperation(
-            value = "Retrieve all customer",
+            value = "Retrieve all customer data",
             notes = "bla..bla..with note example!",
             response = Customer.class,
             responseContainer = "List",
