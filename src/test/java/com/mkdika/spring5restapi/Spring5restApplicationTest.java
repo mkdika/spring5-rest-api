@@ -1,7 +1,7 @@
 /*
  * The MIT License
  *
- * Copyright 2017 Pivotal Software, Inc..
+ * Copyright 2017 Maikel Chandika <mkdika@gmail.com>
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -21,30 +21,23 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package com.mkdika.spring5rest.tags;
+package com.mkdika.spring5restapi;
 
-import com.mkdika.spring5restapi.Spring5restapiApplication;
-import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.ActiveProfiles;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
-
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
+import com.mkdika.spring5restapi.tags.UnitTest;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 
 /**
  *
  * @author Maikel Chandika <mkdika@gmail.com>
  */
-@Target({ ElementType.TYPE, ElementType.METHOD })
-@Retention(RetentionPolicy.RUNTIME)
-@Tag("UnitTest")
-@SpringBootTest(classes = Spring5restapiApplication.class)
-@ExtendWith(SpringExtension.class)
-@ActiveProfiles("test")
-public @interface UnitTest {
-    
+@UnitTest
+@DisplayName("Spring 5 Rest API Unit Tests")
+public class Spring5restApplicationTest {
+
+    @Test
+    void Spring5restApplication() {
+        final String[] args = {};
+        Spring5restapiApplication.main(args);
+    }
 }

@@ -46,7 +46,7 @@ public class SwaggerConfig {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
                 //                .apis(RequestHandlerSelectors.any()) // show all service, including spring-boot default.
-                .apis(RequestHandlerSelectors.basePackage("com.mkdika.spring5rest.web.api")) // show specific class path only                 
+                .apis(RequestHandlerSelectors.basePackage("com.mkdika.spring5restapi.web.api")) // show specific class path only                 
                 .paths(PathSelectors.any())
                 .build()
                 .apiInfo(metaInfo());
@@ -60,7 +60,7 @@ public class SwaggerConfig {
                 "Terms of service..bla..bla", // term of service
                 new Contact("Maikel Chandika", "http://blog.mkdika.com/about/", "mkdika@gmail.com"), // author
                 "License of API is MIT", // License Type
-                "https://github.com/mkdika/spring5rest/blob/master/LICENSE");
+                "https://github.com/mkdika/spring5-rest-api/blob/master/LICENSE");
         return apiInfo;
     }
 }

@@ -30,6 +30,5 @@ import org.springframework.data.repository.CrudRepository;
  *
  * @author Maikel Chandika <mkdika@gmail.com>
  */
-public interface CustomerRepository extends CrudRepository<Customer, Integer>{
-    
+public interface CustomerRepository extends CrudRepository<Customer, Integer>{    
 }

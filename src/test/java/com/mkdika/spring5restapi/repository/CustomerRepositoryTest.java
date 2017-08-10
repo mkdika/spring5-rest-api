@@ -21,10 +21,9 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package com.mkdika.spring5rest;
+package com.mkdika.spring5restapi.repository;
 
 import com.mkdika.spring5restapi.model.Customer;
-import com.mkdika.spring5restapi.repository.CustomerRepository;
 import java.util.List;
 import java.util.Optional;
 import static org.junit.Assert.assertEquals;

@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package com.mkdika.spring5rest;
+package com.mkdika.spring5restapi.web.api;
 
 import com.mkdika.spring5restapi.Spring5restapiApplication;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -58,7 +58,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest(classes = Spring5restapiApplication.class)
 @WebAppConfiguration
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class CustomerRestApiTest {
+public class CustomerControllerTest {
 
     private MediaType contentType = new MediaType(MediaType.APPLICATION_JSON.getType(),
             MediaType.APPLICATION_JSON.getSubtype(),
