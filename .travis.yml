@@ -1,0 +1,17 @@
+language: java
+sudo: false
+jdk:
+  - oraclejdk8
+before_install:
+ - chmod +x mvnw
+before_script:
+  - pip install --user codecov
+after_success:
+  - codecov
+branches:
+  only:
+  - master
+cache:
+  directories:
+  - .autoconf
+  - $HOME/.m2
