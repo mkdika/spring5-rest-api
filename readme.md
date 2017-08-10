@@ -1,8 +1,8 @@
 ## [Spring](https://spring.io/) 5 RESTful API Example
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](/LICENSE)
-[![Build Status](https://travis-ci.org/mkdika/spring5rest.svg?branch=master)](https://travis-ci.org/mkdika/spring5rest)
-[![codecov](https://codecov.io/gh/mkdika/spring5rest/branch/master/graph/badge.svg)](https://codecov.io/gh/mkdika/spring5rest)
-[![codebeat badge](https://codebeat.co/badges/a3c145c8-8fb8-4269-bf1d-26215010dd94)](https://codebeat.co/projects/github-com-mkdika-spring5rest-master)
+[![Build Status](https://travis-ci.org/mkdika/spring5-rest-api.svg?branch=master)](https://travis-ci.org/mkdika/spring5-rest-api)
+[![codecov](https://codecov.io/gh/mkdika/spring5-rest-api/branch/master/graph/badge.svg)](https://codecov.io/gh/mkdika/spring5-rest-api)
+[![codebeat badge](https://codebeat.co/badges/15eb2857-a8c5-40b1-9f63-b5581017b5a2)](https://codebeat.co/projects/github-com-mkdika-spring5-rest-api-master)
 
 
 ### Framework & Libraries
