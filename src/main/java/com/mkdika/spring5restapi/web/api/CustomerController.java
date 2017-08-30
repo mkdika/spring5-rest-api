@@ -103,7 +103,7 @@ public class CustomerController {
             produces = "application/json")
     @RequestMapping(method = DELETE, value = "/{id}")
     public void deleteCustomer(@PathVariable Integer id) {
-        Optional<Customer> customer = repository.findById(id);
+        Optional<Customer> customer = repository.findById(id);        
         try {
             repository.delete(customer.get());
         } catch (Exception ex) {

@@ -26,7 +26,9 @@ package com.mkdika.spring5restapi.model;
 import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  *
@@ -34,6 +36,8 @@ import lombok.Data;
  */
 @Entity
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Customer implements Serializable {
             
     @Id    
@@ -41,14 +45,4 @@ public class Customer implements Serializable {
     private String firstname;
     private String lastname;        
     private Double balance;
-
-    public Customer() {
-    }
-
-    public Customer(Integer id, String firstname, String lastname, Double balance) {
-        this.id = id;
-        this.firstname = firstname;
-        this.lastname = lastname;
-        this.balance = balance;
-    }                
 }
