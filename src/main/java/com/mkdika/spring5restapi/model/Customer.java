@@ -26,9 +26,11 @@ package com.mkdika.spring5restapi.model;
 import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.validator.constraints.NotEmpty;
 
 /**
  *
@@ -39,10 +41,16 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Customer implements Serializable {
-            
-    @Id    
+
+    @Id
+    @NotNull(message = "ID can not null.")
     private Integer id;
+
+    @NotEmpty(message = "Firstname can not empty.")
     private String firstname;
-    private String lastname;        
+    
+    @NotEmpty(message = "Lastname can not empty.")
+    private String lastname;
+    
     private Double balance;
 }

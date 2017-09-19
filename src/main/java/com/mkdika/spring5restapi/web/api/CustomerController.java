@@ -28,6 +28,7 @@ import com.mkdika.spring5restapi.repository.CustomerRepository;
 import io.swagger.annotations.ApiOperation;
 import java.util.List;
 import java.util.Optional;
+import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -59,6 +60,7 @@ public class CustomerController {
             produces = "application/json")
     @RequestMapping(method = GET)
     public ResponseEntity getCustomers() {
+        System.out.println("Hit!");
         return new ResponseEntity((List<Customer>) repository.findAll(), HttpStatus.OK);
     }
 
@@ -77,22 +79,16 @@ public class CustomerController {
         }
     }
 
-    
     @ApiOperation(
             value = "Create or Update customer.",
             notes = "Not available.",
             produces = "application/json")
     @RequestMapping(method = {POST, PUT})
-    public ResponseEntity addUpdateCustomer(@RequestBody Customer customer) {
-        try {                                                            
-            repository.save(customer);
-            return new ResponseEntity(HttpStatus.OK);
-        } catch (Exception ex) {
-            return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
+    public ResponseEntity addUpdateCustomer(@Valid @RequestBody Customer customer) {
+        repository.save(customer);
+        return new ResponseEntity(HttpStatus.OK);
     }
-    
-    
+
     @ApiOperation(
             value = "Delete customer by Id",
             notes = "bla..bla..with note example!",
@@ -100,11 +96,7 @@ public class CustomerController {
     @RequestMapping(method = DELETE, value = "/{id}")
     public ResponseEntity deleteCustomer(@PathVariable Integer id) {
         Optional<Customer> customer = repository.findById(id);
-        try {
-            repository.delete(customer.get());
-            return new ResponseEntity(HttpStatus.OK);
-        } catch (Exception ex) {
-            return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
+        repository.delete(customer.get());
+        return new ResponseEntity(HttpStatus.OK);
     }
 }

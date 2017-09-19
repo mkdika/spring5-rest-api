@@ -134,6 +134,17 @@ public class CustomerControllerTest {
                 .content(custJson))
                 .andExpect(status().isOk());
     }
+    
+     @Test
+    public void test3bCreateCustomer() throws Exception {
+        String custJson = json(new Customer(99, "", "Sparrow", 4500d));
+        this.mockMvc.perform(post("/api/customer")
+                .contentType(contentType)
+                .content(custJson))
+                .andExpect(status().isBadRequest());
+    }
+    
+    
 
     @Test
     public void test4UpdateCustomer() throws Exception {
@@ -153,13 +164,13 @@ public class CustomerControllerTest {
     @Test
     public void test5bDeleteCustomer() throws Exception {
         try {
-            mockMvc.perform(delete("/api/customer/2"))
+            mockMvc.perform(delete("/api/customer/78"))
                     .andExpect(status().isOk());
         } catch (Exception ex) {
 
         }
     }
-
+       
     protected String json(Customer c) throws IOException {
         return mapper.writeValueAsString(c);
     }

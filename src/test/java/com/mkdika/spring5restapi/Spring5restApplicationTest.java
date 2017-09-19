@@ -23,21 +23,21 @@
  */
 package com.mkdika.spring5restapi;
 
-import com.mkdika.spring5restapi.tags.UnitTest;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
 /**
  *
  * @author Maikel Chandika <mkdika@gmail.com>
  */
-@UnitTest
-@DisplayName("Spring 5 Rest API Unit Tests")
+@RunWith(SpringRunner.class)
+@SpringBootTest(classes = Spring5restapiApplication.class)
 public class Spring5restApplicationTest {
-
+    
     @Test
-    void Spring5restApplication() {
-        final String[] args = {};
-        Spring5restapiApplication.main(args);
+    public void contextLoads() {
     }
+    
 }

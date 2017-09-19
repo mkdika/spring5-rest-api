@@ -87,10 +87,20 @@ public class CustomerRepositoryTest {
     }
 
     @Test
-    public void save() {                
-        repository.save(new Customer(6,"Budi","Argentum",1000d));
+    public void save() {
+        repository.save(new Customer(6, "Budi", "Argentum", 1000d));
         entityManager.flush();
         Optional<Customer> cust = repository.findById(6);
         assertEquals("Argentum", cust.get().getLastname());
+    }
+
+    @Test
+    public void createEntity() {
+        Customer c = new Customer();
+        c.setId(54);
+        c.setFirstname("Budi");
+        c.setLastname("ono");
+        c.setBalance(666d);
+        assertTrue(repository.save(c) != null);                        
     }
 }
