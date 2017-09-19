@@ -26,18 +26,20 @@ package com.mkdika.spring5restapi;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.web.WebAppConfiguration;
 
 /**
  *
  * @author Maikel Chandika <mkdika@gmail.com>
  */
-@RunWith(SpringRunner.class)
+//@RunWith(SpringRunner.class)
+@RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest(classes = Spring5restapiApplication.class)
+@WebAppConfiguration
 public class Spring5restApplicationTest {
     
     @Test
     public void contextLoads() {
-    }
-    
+    }    
 }

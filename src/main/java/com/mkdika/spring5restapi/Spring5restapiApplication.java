@@ -25,14 +25,12 @@ package com.mkdika.spring5restapi;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
  *
  * @author unicorn10
  */
 @SpringBootApplication
-@ConfigurationProperties
 public class Spring5restapiApplication {
 
     /**

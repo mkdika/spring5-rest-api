@@ -59,8 +59,7 @@ public class CustomerController {
             responseContainer = "List",
             produces = "application/json")
     @RequestMapping(method = GET)
-    public ResponseEntity getCustomers() {
-        System.out.println("Hit!");
+    public ResponseEntity getCustomers() {        
         return new ResponseEntity((List<Customer>) repository.findAll(), HttpStatus.OK);
     }
 
