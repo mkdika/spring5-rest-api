@@ -120,7 +120,7 @@ public class CustomerControllerTest {
     public void test2bCheckCustomerById() throws Exception {
         try {
             mockMvc.perform(get("/api/customer/10"))
-                    .andExpect(status().is5xxServerError());
+                    .andExpect(status().is4xxClientError());
         } catch (Exception ex) {
 
         }
@@ -138,7 +138,7 @@ public class CustomerControllerTest {
     @Test
     public void test4UpdateCustomer() throws Exception {
         String custJson = json(new Customer(3, "Luben", "Wong", 9990d));
-        this.mockMvc.perform(put("/api/customer/3")
+        this.mockMvc.perform(put("/api/customer/")
                 .contentType(contentType)
                 .content(custJson))
                 .andExpect(status().isOk());
@@ -153,7 +153,7 @@ public class CustomerControllerTest {
     @Test
     public void test5bDeleteCustomer() throws Exception {
         try {
-            mockMvc.perform(delete("/api/customer/34"))
+            mockMvc.perform(delete("/api/customer/2"))
                     .andExpect(status().isOk());
         } catch (Exception ex) {
 

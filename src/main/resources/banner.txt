@@ -8,4 +8,4 @@ ${AnsiColor.BRIGHT_RED}░ ░▒ ▒░  ░ ▒ ▒░ ░ ░░   ░ ▒░
 ${AnsiColor.BRIGHT_RED}░ ░░ ░ ░ ░ ░ ▒     ░   ░ ░ ░ ░   ░ ░ ░░ ░ ░ ░ ░ ▒    ░   ░      ▒ ░  ░         ░      ░      ░    ░ ░  ░   ░   ▒      ░   ░ ░ 
 ${AnsiColor.BRIGHT_RED}░  ░       ░ ░           ░       ░ ░  ░       ░ ░      ░        ░                     ░      ░  ░   ░          ░  ░         ░ 
 ${AnsiColor.BRIGHT_RED}                                                                                                  ░                           
-${AnsiColor.BRIGHT_BLUE}:: KIT Medan :: Running Spring Boot ${spring-boot.version} :: \ö/${AnsiColor.BLACK}
+${AnsiColor.BRIGHT_BLUE}:: KIT Medan 2017:: Running Spring Boot ${spring-boot.version} :: \ö/${AnsiColor.BLACK}

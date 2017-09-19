@@ -29,6 +29,8 @@ import io.swagger.annotations.ApiOperation;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -56,8 +58,8 @@ public class CustomerController {
             responseContainer = "List",
             produces = "application/json")
     @RequestMapping(method = GET)
-    public List<Customer> getCustomers() {
-        return (List<Customer>) repository.findAll();
+    public ResponseEntity getCustomers() {
+        return new ResponseEntity((List<Customer>) repository.findAll(), HttpStatus.OK);
     }
 
     @ApiOperation(
@@ -66,48 +68,43 @@ public class CustomerController {
             response = Customer.class,
             produces = "application/json")
     @RequestMapping(method = GET, value = "/{id}")
-    public Customer getCustomerById(@PathVariable Integer id) {
+    public ResponseEntity getCustomerById(@PathVariable Integer id) {
         Optional<Customer> customer = repository.findById(id);
         try {
-            return customer.get();
+            return new ResponseEntity(customer.get(), HttpStatus.OK);
         } catch (Exception ex) {
-            throw new RuntimeException("Customer not found:" + ex.getLocalizedMessage());
+            return new ResponseEntity(HttpStatus.NOT_FOUND);
         }
     }
 
+    
     @ApiOperation(
-            value = "Add new customer",
-            notes = "bla..bla..with note example!",
+            value = "Create or Update customer.",
+            notes = "Not available.",
             produces = "application/json")
-    @RequestMapping(method = POST)
-    public void addCustomer(@RequestBody Customer customer) {
-        repository.save(customer);
+    @RequestMapping(method = {POST, PUT})
+    public ResponseEntity addUpdateCustomer(@RequestBody Customer customer) {
+        try {                                                            
+            repository.save(customer);
+            return new ResponseEntity(HttpStatus.OK);
+        } catch (Exception ex) {
+            return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
-
-    @ApiOperation(
-            value = "Edit customer by Id",
-            notes = "bla..bla..with note example!",
-            produces = "application/json")
-    @RequestMapping(method = PUT, value = "/{id}")
-    public void updateCustomer(@PathVariable Integer id, @RequestBody Customer customer) {
-        Optional<Customer> c = repository.findById(id);
-        c.get().setFirstname(customer.getFirstname());
-        c.get().setLastname(customer.getLastname());
-        c.get().setBalance(customer.getBalance());
-        repository.save(c.get());
-    }
-
+    
+    
     @ApiOperation(
             value = "Delete customer by Id",
             notes = "bla..bla..with note example!",
             produces = "application/json")
     @RequestMapping(method = DELETE, value = "/{id}")
-    public void deleteCustomer(@PathVariable Integer id) {
-        Optional<Customer> customer = repository.findById(id);        
+    public ResponseEntity deleteCustomer(@PathVariable Integer id) {
+        Optional<Customer> customer = repository.findById(id);
         try {
             repository.delete(customer.get());
+            return new ResponseEntity(HttpStatus.OK);
         } catch (Exception ex) {
-            throw new RuntimeException("Delete customer failed:" + ex.getLocalizedMessage());
+            return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 }
