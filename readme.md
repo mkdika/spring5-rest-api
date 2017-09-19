@@ -17,6 +17,7 @@
 - [Lombok (Reduce Boiler Plate Code)](https://projectlombok.org/)
 - [__H2__ In-Memory Database Engine](http://www.h2database.com/html/main.html)
 - [Jetty Web Server](http://www.eclipse.org/jetty/)
+- [Undertow Web Server](http://undertow.io/)
 - [Maven3](https://maven.apache.org/)
 - Unit Test:
     - [JUnit](http://junit.org/junit4/)
