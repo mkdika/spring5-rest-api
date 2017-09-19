@@ -25,6 +25,9 @@ package com.mkdika.spring5restapi;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 
 /**
  *
@@ -39,5 +42,23 @@ public class Spring5restapiApplication {
      */
     public static void main(String[] args) {
         SpringApplication.run(Spring5restapiApplication.class, args);       
+    }
+    
+    /*
+        19 September 2017 15:30
+        This class is to tell spring that thread all @Component as Lazy
+        initializer. Just for helping development purpose, the have a faster
+        Spring boot startup.
+    
+        usage:
+        - add this in application VM options (image: https://imgur.com/cfAd1C0)
+    
+            -Dspring.profiles.active=local
+                    
+    */
+    @Configuration
+    @Profile("local")
+    @ComponentScan(lazyInit = true)
+    static class LocalConfig {
     }
 }
