@@ -56,9 +56,9 @@ public class Spring5restapiApplication {
             -Dspring.profiles.active=local
                     
     */
-    @Configuration
-    @Profile("local")
-    @ComponentScan(lazyInit = true)
-    static class LocalConfig {
-    }
+//    @Configuration
+//    @Profile("local")
+//    @ComponentScan(lazyInit = true)
+//    static class LocalConfig {
+//    }
 }
